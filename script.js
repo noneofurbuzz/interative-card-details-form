@@ -41,11 +41,3 @@ function increment(input){
             input.value = input.value.replace()
         }
     
-    //if (input.value.length > 0){
-      //  if (input.value.length % 4 == 0){
-        //    input.value = input.value.replace(input.value,input.value + " ");
-        //}
-
-    }
-    //while(input.value.length < 10)
-
