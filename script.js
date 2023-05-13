@@ -18,26 +18,5 @@ function increment(input){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    for (let i in input.value){
-        i = i + 1;
-    }
-        if (input.value.length % 4 == 0){
-            input.value = input.value.replace()
-        }
     
+
