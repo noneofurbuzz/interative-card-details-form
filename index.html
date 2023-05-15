@@ -13,11 +13,11 @@
     <div class="container">
         <div class="image">  
             <img class = "back"src="images/bg-card-back.png" alt="bg-card-back">
-            <p class="card-cvc">000</p>
             <img class = "front"src="images/bg-card-front.png" alt="bg-card-front">
+            <p class="card-cvc">000</p>
             <p class="card-number">0000 0000 0000 0000</p>
             <p class="card-name">JANE APPLESEED</p>
-            <p class="card-date">00/00</p>
+            <p class="card-date"><span class="month">00</span><span>/</span><span class="year">00</span></p>
             <img class = "card-logo" src="images/card-logo.svg" alt="card-logo">
             </div>
             <form autocomplete="off" spellcheck="false">
@@ -32,14 +32,14 @@
                 <div class="table">
                   <div class="row1">
                     <span class="span-date"><label for="date">EXP.DATE(MM/YY)</label><br></span>
-                    <input type="text" name="date" id="date" placeholder="MM" maxlength="2" oninput="num(this)">
+                    <input type="text" name="date" id="date" placeholder="MM" maxlength="2" oninput="num(this);cardmonth(this)">
                   </div>
                   <div class="row2">
-                    <br><input type="text" name="years" id="year" placeholder="YY" oninput="num(this)" maxlength="2">
+                    <br><input type="text" name="years" id="year" placeholder="YY" oninput="num(this);cardyear(this)" maxlength="2">
                   </div>
                   <div class="row3">
                     <label for="cvc">CVC</label><br>
-                    <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" oninput="num(this)" maxlength="3">
+                    <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" oninput="num(this);cardcvc(this)" maxlength="3">
                   </div>
                 </div>
                 <br><br>

@@ -17,6 +17,22 @@ function cardname(input){
     name.textContent = input.value;
 }
 function cardnum(input){
-    var num = document.querySelector(".card-number span");
+    var num = document.querySelector(".card-number");
+    num.textContent = input.value;
+}
+function cardcvc(input){
+    var num = document.querySelector(".card-cvc");
+    num.textContent = input.value;
+}
+function cardnum(input){
+    var num = document.querySelector(".card-number");
+    num.textContent = input.value;
+}
+function cardmonth(input){
+    var num = document.querySelector(".card-date .month");
+    num.textContent = input.value;
+}
+function cardyear(input){
+    var num = document.querySelector(".card-date .year");
     num.textContent = input.value;
 }
