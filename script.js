@@ -12,6 +12,11 @@ function group(input){
 function num(input){
     input.value = input.value.replace(/\D/g,"");
 }
+function max(input){
+    if (input.value > input.maxlength){
+        input.value = input.value.slice(0,input.maxlength);
+    }
+}
 function cardname(input){
     input.value = input.value.replace(/[^a-zA-Z ]/g,"");
     var name = document.querySelector(".card-name");
