@@ -13,12 +13,9 @@ function num(input){
     input.value = input.value.replace(/\D/g,"");
 }
 function cardname(input){
+    input.value = input.value.replace(/[^a-zA-Z ]/g,"");
     var name = document.querySelector(".card-name");
     name.textContent = input.value;
-}
-function cardnum(input){
-    var num = document.querySelector(".card-number");
-    num.textContent = input.value;
 }
 function cardcvc(input){
     var num = document.querySelector(".card-cvc");
@@ -26,7 +23,11 @@ function cardcvc(input){
 }
 function cardnum(input){
     var num = document.querySelector(".card-number");
-    num.textContent = input.value;
+    var content = "";
+    for (let i = 0;i < input.value.length;i =i + 1){
+        content = content + input.value[i];
+        num.textContent = content + num.textContent.slice(i + 1,num.textContent.length);
+    }   
 }
 function cardmonth(input){
     var num = document.querySelector(".card-date .month");
