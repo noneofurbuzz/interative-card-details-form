@@ -14,8 +14,9 @@ function num(input){
     
 }
 function max_len(input){//slices the input from index 0 to maxlength if input greater than maxlength
-    if (input.value > input.maxlength){
-        input.value = input.value.slice(0,input.maxlength);
+    let maxLength = 24;
+    if (input.value.length > maxLength){
+        input.value = input.value.slice(0,maxLength);
     }
 }
 
@@ -74,7 +75,10 @@ function delete_cardnum(input){
                 zero = zero + "0"; //else zero is just equals to zero
             }
         }
-        cardnum.textContent = zero + cardnum.textContent.slice(input.value.length)
+        cardnum.textContent = zero + cardnum.textContent.slice(input.value.length);
+        if(input.value == ""){
+            cardnum.textContent = " 0000 0000 0000 0000";//replaces card number with " 0000 0000 0000 0000" if it's empty
+        }
     }
 }
 
