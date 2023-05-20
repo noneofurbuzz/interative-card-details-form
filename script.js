@@ -171,11 +171,6 @@ function delete_cardname(input){
             document.getElementById("name_blank").style.display = "inline-block";
             document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
         }
-        if(input.value.length < 3 && input.value !== ""){
-            document.getElementById("name_length").style.display = "inline-block";
-            document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
-        }
-
     }
 }
 
