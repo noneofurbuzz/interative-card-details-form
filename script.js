@@ -26,6 +26,7 @@ function cardname(input){
     name.textContent = input.value;
     document.getElementById("name_blank").style.display = "none";
     document.getElementById("name").style.borderColor = "transparent";
+    document.getElementById("name_length").style.display = "none";
 }
 
 function cardcvc(input){
@@ -38,6 +39,7 @@ function cardcvc(input){
         }   
         document.getElementById("cvc_blank").style.display = "none";
         document.getElementById("cvc").style.borderColor = "transparent";
+        document.getElementById("cvc_length").style.display = "none";
 }
 
 function cardnum(input){
@@ -49,6 +51,7 @@ function cardnum(input){
         }   
         document.getElementById("cardnum_blank").style.display = "none";
         document.getElementById("number").style.borderColor = "transparent";
+        document.getElementById("number_length").style.display = "none";
 }
 
 function cardmonth(input){
@@ -60,6 +63,8 @@ function cardmonth(input){
         }   
         document.getElementById("date_blank").style.display = "none";
         document.getElementById("date").style.borderColor = "transparent";
+        
+        document.getElementById("date_length").style.display = "none";
 }
 
 function cardyear(input){
@@ -71,6 +76,9 @@ function cardyear(input){
             }   
             document.getElementById("date_blank").style.display = "none";
             document.getElementById("year").style.borderColor = "transparent";
+            document.getElementById("date_length").style.display = "none";
+      
+        
 }
 
 function delete_cardnum(input){
@@ -94,6 +102,7 @@ function delete_cardnum(input){
             document.getElementById("cardnum_blank").style.display = "inline-block";
             document.getElementById("number").style.borderColor = "hsl(0, 100%, 66%)";
         }
+
     }
 }
 
@@ -126,6 +135,7 @@ function delete_cardyear(input){
         if(input.value == ""){
             document.getElementById("date_blank").style.display = "inline-block";
             document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
+            document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
     }
     }
 }
@@ -142,7 +152,11 @@ function delete_cardmonth(input){
         if(input.value == ""){
             document.getElementById("date_blank").style.display = "inline-block";
             document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+            document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
     }
+       document.getElementById("date_invalid").style.display = "none";
+       document.getElementById("year_invalid").style.display = "none";
+    
     }
 }
 
@@ -156,7 +170,12 @@ function delete_cardname(input){
         if(input.value == ""){
             document.getElementById("name_blank").style.display = "inline-block";
             document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
-    }
+        }
+        if(input.value.length < 3 && input.value !== ""){
+            document.getElementById("name_length").style.display = "inline-block";
+            document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+        }
+
     }
 }
 
@@ -168,6 +187,10 @@ function blankcvc_error(input){
                 document.getElementById("cvc_blank").style.display = "inline-block";
                 document.getElementById("cvc").style.borderColor = "hsl(0, 100%, 66%)";
         }
+        if(input.value.length < 3 && input.value !== ""){
+            document.getElementById("cvc_length").style.display = "inline-block";
+            document.getElementById("cvc").style.borderColor = "hsl(0, 100%, 66%)";
+            }
     }
 }
 function blanknum_error(input){
@@ -178,6 +201,10 @@ function blanknum_error(input){
                 document.getElementById("cardnum_blank").style.display = "inline-block";
                 document.getElementById("number").style.borderColor = "hsl(0, 100%, 66%)";
         }
+            if(input.value.length < 20 && input.value !== ""){
+            document.getElementById("number_length").style.display = "inline-block";
+            document.getElementById("number").style.borderColor = "hsl(0, 100%, 66%)";
+            }
     }
 }
 function blankname_error(input){
@@ -190,6 +217,10 @@ function blankname_error(input){
                 document.getElementById("name_blank").style.display = "inline-block";
                 document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
             }
+            if(input.value.length < 3 && input.value !== ""){
+                document.getElementById("name_length").style.display = "inline-block";
+                document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+            }
     }
 }
 function blankdate_error(input){
@@ -198,28 +229,148 @@ function blankdate_error(input){
         {
             if(input.value == ""){
                 document.getElementById("date_blank").style.display = "inline-block";
-                if(document.getElementById("date").value == ""){
+                {
                     document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
-                }
-                if(document.getElementById("year").value == ""){
                     document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
                 }
-                
-            }
+                    
+                }
+                if(input.value.length < 2 && input.value !== ""){
+                    document.getElementById("date_length").style.display = "inline-block";
+                        document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+                        document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
+                    } 
+                       document.getElementById("date_invalid").style.display = "none";
+                       document.getElementById("year_invalid").style.display = "none";
+         }
     }
-}
-function colour_change(input){
+                
+            
+    
+
+function colour_change_month(input){
+    const currentdate = new Date();
+    let currentyear = currentdate.getFullYear();
+    currentyear = currentyear.toString().slice(2,4);
+    let currentmonth = currentdate.getMonth();
+    currentmonth = currentmonth + 1;
+        if((document.getElementById("date").value == "") || (document.getElementById("year").value == "")){
+                document.getElementById("date_blank").style.display = "inline-block";
+                document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+                document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
+
+            }
+        else{
+            document.getElementById("date").style.borderColor ="hsl(270, 3%, 87%";
+            document.getElementById("year").style.borderColor = "hsl(270, 3%, 87%";
+        }
+        if(((document.getElementById("year").value.length < 2) || (document.getElementById("date").value.length < 2)) && ((document.getElementById("year").value !== "") && (document.getElementById("date").value !== ""))) {
+            document.getElementById("date_length").style.display = "inline-block";
+            document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+            document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
+         
+            }
+        if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) > 12){
+            document.getElementById("date_invalid").style.display = "inline-block";
+            document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+            document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
+        }
+        if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+            if((parseInt(document.getElementById("year").value)) < parseInt(currentyear)){
+             document.getElementById("year_invalid").style.display = "inline-block";
+             document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+             document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
+            }
+         }
+         if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+             if((parseInt(document.getElementById("year").value)) == parseInt(currentyear)){
+                 if((parseInt(document.getElementById("date").value))< parseInt(currentmonth)){
+                     document.getElementById("year_invalid").style.display = "inline-block";
+                     document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+                     document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
+                 }
+             }
+          }
+    }
+      
+    
+ function colour_change_cvc(input){
         if(input.value == ""){
             input.style.borderColor = "hsl(0, 100%, 66%)";
+            document.getElementById("cvc_blank").style.display = "inline-block";
         }
         else{
             input.style.borderColor = "hsl(270, 3%, 87%";
         }
+        if(input.value.length < 3 && input.value !== ""){
+            document.getElementById("cvc_length").style.display = "inline-block";
+            document.getElementById("cvc").style.borderColor = "hsl(0, 100%, 66%)";
+        }
+}
+function colour_change_num(input){
+    if(input.value == ""){
+        input.style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("cardnum_blank").style.display = "inline-block";
     }
-function focus_color(input){
+    else{
+        input.style.borderColor = "hsl(270, 3%, 87%";
+    }
+    if(input.value.length < 20 && input.value !== ""){
+        document.getElementById("number_length").style.display = "inline-block";
+        document.getElementById("number").style.borderColor = "hsl(0, 100%, 66%)";
+        }
+}
+function colour_change_name(input){
+    if(input.value == ""){
+        input.style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("name_blank").style.display = "inline-block";
+    }
+    else{
+        input.style.borderColor = "hsl(270, 3%, 87%";
+    }
+    if(input.value.length < 3 && input.value !== ""){
+        document.getElementById("name_length").style.display = "inline-block";
+        document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+    }
+
+}
+function focus_color_name(input){
     input.style.borderColor = "transparent";
+    document.getElementById("name_blank").style.display = "none";
+    document.getElementById("name_length").style.display = "none";
+}
+function focus_color_num(input){
+    input.style.borderColor = "transparent";
+    document.getElementById("cardnum_blank").style.display = "none";
+    document.getElementById("number_length").style.display = "none";
+}
+function focus_color_month(input){
+    input.style.borderColor = "transparent";
+    document.getElementById("date_blank").style.display = "none";
+    document.getElementById("date_length").style.display = "none";
+    document.getElementById("date_invalid").style.display = "none";
+    document.getElementById("year_invalid").style.display = "none";
+    
+}
+function focus_color_year(input){
+    input.style.borderColor = "transparent";
+    document.getElementById("date_blank").style.display = "none";
+    document.getElementById("date_length").style.display = "none";
+    document.getElementById("date_invalid").style.display = "none";
+    document.getElementById("year_invalid").style.display = "none";
+}
+function focus_color_cvc(input){
+    input.style.borderColor = "transparent";
+    document.getElementById("cvc_blank").style.display = "none";
+    document.getElementById("cvc_length").style.display = "none";
 }
  function validateform(){//a function that validates if input is not empty, in the correct format and valid on submit
+    let error = 0;
+    const currentdate = new Date();
+    let currentyear = currentdate.getFullYear();
+    currentyear = currentyear.toString().slice(2,4);
+    let currentmonth = currentdate.getMonth();
+    currentmonth = currentmonth + 1;
     let name = document.getElementById("name");
     let number = document.getElementById("number");
     let date = document.getElementById("date");
@@ -228,34 +379,76 @@ function focus_color(input){
     if (name.value == "" || name.value == null){// if card name is empty on submit then display error message
         document.getElementById("name_blank").style.display = "inline-block";
         document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1;
+    
     }
-    else{
-        document.getElementById("name_blank").style.display = "none";
+    if (name.value.length < 3 && name.value !== ""){ 
+        document.getElementById("name_length").style.display = "inline-block";
+        document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1;
     }
     if (number.value == "" || number.value == null){
         document.getElementById("cardnum_blank").style.display = "inline-block";
         document.getElementById("number").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1;
+ 
     }
-    else{
-        document.getElementById("cardnum_blank").style.display = "none";
-    }
-    if (((date.value == "") || (year.value == "")) || ((date.value == null) || (year.value == null))){
+    if(number.value.length < 20 && number.value !== ""){
+        document.getElementById("number_length").style.display = "inline-block";
+        document.getElementById("number").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1
+        }
+    if((document.getElementById("date").value == "") || (document.getElementById("year").value == "")){
         document.getElementById("date_blank").style.display = "inline-block";
-    }
-    else{
-        document.getElementById("date_blank").style.display = "none";
-    }
-    if ((date.value == "") || (date.value == null)) {
         document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
-    }
-    if ((year.value == "") || (year.value == null)) {
         document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1
+
+        }
+    if(((document.getElementById("year").value.length < 2) || (document.getElementById("date").value.length < 2)) && ((document.getElementById("year").value !== "") && (document.getElementById("date").value !== ""))) {
+        document.getElementById("date_length").style.display = "inline-block";
+         document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1;
+            
     }
+    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) > 12){
+        document.getElementById("date_invalid").style.display = "inline-block";
+        document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
+        error = error + 1;
+    }
+    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+       if((parseInt(document.getElementById("year").value)) < parseInt(currentyear)){
+        document.getElementById("year_invalid").style.display = "inline-block";
+        document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
+        error = error + 1;
+       }
+    }
+    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+        if((parseInt(document.getElementById("year").value)) == parseInt(currentyear)){
+            if((parseInt(document.getElementById("date").value))< parseInt(currentmonth)){
+                document.getElementById("year_invalid").style.display = "inline-block";
+                document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
+                document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
+                error = error + 1;
+            }
+        }
+     }
     if ((cvc.value == "") || (cvc.value == null)){
         document.getElementById("cvc_blank").style.display = "inline-block";
         document.getElementById("cvc").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1;
+        
     }
-    else{
-        document.getElementById("cvc_blank").style.display = "none";
+    if(cvc.value.length < 3 && cvc.value !== ""){
+        document.getElementById("cvc_length").style.display = "inline-block";
+        document.getElementById("cvc").style.borderColor = "hsl(0, 100%, 66%)";
+        error = error + 1;
+    }
+    if (error === 0){
+        document.write("hi")
     }
 }
+

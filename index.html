@@ -23,38 +23,44 @@
             <form autocomplete="off" spellcheck="false">
                 <label for="name">CARDHOLDER NAME</label>
                 <br>
-                <input type="text" name="name" id="name" placeholder="e.g. Jane Appleseed" oninput="max_len(this);cardname(this)" onkeydown="delete_cardname(this)" onkeyup="blankname_error(this)" onfocusout = "colour_change(this)" onfocus="focus_color(this)">
+                <input type="text" name="name" id="name" placeholder="e.g. Jane Appleseed" oninput="max_len(this);cardname(this)" onkeydown="delete_cardname(this)" onkeyup="blankname_error(this)" onfocusout = "colour_change_name(this)" onfocus="focus_color_name(this)">
                 <br>
                 <label id="name_blank">Can't be blank</label>
+                <label id="name_length">Character length too short</label>
                 <br><br>
                 <label for="number">CARD NUMBER</label>
                 <br>
-                <input type="text" name="number" id="number" placeholder="e.g. 1234 5678 9123 0000" maxlength="20" oninput="group(this);cardnum(this)" onkeydown = "delete_cardnum(this)" onkeyup="blanknum_error(this)" onfocusout = "colour_change(this)" onfocus="focus_color(this)">
+                <input type="text" name="number" id="number" placeholder="e.g. 1234 5678 9123 0000" maxlength="20" oninput="group(this);cardnum(this)" onkeydown = "delete_cardnum(this)" onkeyup="blanknum_error(this)" onfocusout = "colour_change_num(this)" onfocus="focus_color_num(this)">
                 <br>
                 <label id="cardnum_blank">Can't be blank</label>
+                <label id="number_length">Invalid input</label>
                 <br><br>
                 <div class="table">
                   <div class="row1">
                     <span class="span-date"><label for="date">EXP.DATE(MM/YY)</label><br></span>
-                    <input type="text" name="date" id="date" placeholder="MM" maxlength="2" oninput="num(this);cardmonth(this)" onkeydown="delete_cardmonth(this)" onkeyup="blankdate_error(this)" onfocusout = "colour_change(this)" onfocus="focus_color(this)">
+                    <input type="text" name="date" id="date" placeholder="MM" maxlength="2" oninput="num(this);cardmonth(this)" onkeydown="delete_cardmonth(this)" onkeyup="blankdate_error(this)" onfocusout = "colour_change_month(this)" onfocus="focus_color_month(this)">
                     <br>
                     <label id="date_blank">Can't be blank</label>
+                    <label id="date_length">Wrong format</label>
+                    <label id="date_invalid">Invalid date</label>
+                    <label id="year_invalid">Expired date</label>
                     <br>
                   </div>
                   <div class="row2">
-                    <br><input type="text" name="years" id="year" placeholder="YY" oninput="num(this);cardyear(this)" onkeydown = " delete_cardyear(this)" onkeyup="blankdate_error(this)" onfocusout = "colour_change(this)" onfocus="focus_color(this)"maxlength="2">
+                    <br><input type="text" name="years" id="year" placeholder="YY" oninput="num(this);cardyear(this)" onkeydown = " delete_cardyear(this)" onkeyup="blankdate_error(this)" onfocusout = "colour_change_month(this)" onfocus="focus_color_year(this)"maxlength="2">
                   </div>
                   <div class="row3">
                     <label for="cvc">CVC</label><br>
-                    <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" oninput="num(this);cardcvc(this)" onkeydown="delete_cardcvc(this)" onkeyup = "blankcvc_error(this)" onfocusout = "colour_change(this)" onfocus="focus_color(this)" maxlength="3">
+                    <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" oninput="num(this);cardcvc(this)" onkeydown="delete_cardcvc(this)" onkeyup = "blankcvc_error(this)" onfocusout = "colour_change_cvc(this)" onfocus="focus_color_cvc(this)" maxlength="3">
                     <br>
                     <label id="cvc_blank">Can't be blank</label>
+                    <label id="cvc_length">Invalid input</label>
                     <br>
                   </div>
                 </div>
                 <br><br>
             </form>
-            <div class="button"><button onclick="validateform()">Confirm</button></div>
+            <div class="button"><button onclick="validateform();thankyou();">Confirm</button></div>
         </div>
   </main>
   <script src="script.js"></script>

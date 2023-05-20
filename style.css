@@ -194,6 +194,42 @@ input::placeholder{
     margin-top: 10px;
     color: hsl(0, 100%, 66%);   
 }
+#name_length{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: hsl(0, 100%, 66%);   
+}
+#date_length{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: hsl(0, 100%, 66%);   
+}
+#number_length{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: hsl(0, 100%, 66%);   
+}
+#cvc_length{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: hsl(0, 100%, 66%);   
+}
+#date_invalid{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: hsl(0, 100%, 66%);   
+}
+#year_invalid{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: hsl(0, 100%, 66%);   
+}
 button{
     margin: auto;
     width: 100%;
