@@ -25,7 +25,7 @@ function cardname(input){
     var name = document.querySelector(".card-name");
     name.textContent = input.value;
     document.getElementById("name_blank").style.display = "none";
-    document.getElementById("name").style.borderColor = "transparent";
+    document.getElementById("cardholdername").style.borderColor = "transparent";
     document.getElementById("name_length").style.display = "none";
 }
 
@@ -162,14 +162,14 @@ function delete_cardmonth(input){
 
 function delete_cardname(input){
     const key = event.key;
-    let cardname = document.querySelector(".card-name");
+    let card_name = document.querySelector(".card-name");
     if((key === "Backspace") || (key === "Delete")){
         if(input.value == ""){
-            cardname.textContent = "JANE APPLESEED";
+            card_name.textContent = "JANE APPLESEED";
         }
         if(input.value == ""){
             document.getElementById("name_blank").style.display = "inline-block";
-            document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+            document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
         }
     }
 }
@@ -204,17 +204,17 @@ function blanknum_error(input){
 }
 function blankname_error(input){
     const key = event.key; 
-    let cardname = document.querySelector(".card-name");
+    let card_name = document.querySelector(".card-name");
     if((key === "Backspace") || (key === "Delete"))
         {
             if(input.value == ""){
-                cardname.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
+                card_name.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
                 document.getElementById("name_blank").style.display = "inline-block";
-                document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+                document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
             }
             if(input.value.length < 3 && input.value !== ""){
                 document.getElementById("name_length").style.display = "inline-block";
-                document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+                document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
             }
     }
 }
@@ -325,7 +325,7 @@ function colour_change_name(input){
     }
     if(input.value.length < 3 && input.value !== ""){
         document.getElementById("name_length").style.display = "inline-block";
-        document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
     }
 
 }
@@ -366,20 +366,20 @@ function focus_color_cvc(input){
     currentyear = currentyear.toString().slice(2,4);
     let currentmonth = currentdate.getMonth();
     currentmonth = currentmonth + 1;
-    let name = document.getElementById("name");
+    let name = document.getElementById("cardholdername");
     let number = document.getElementById("number");
     let date = document.getElementById("date");
     let cvc = document.getElementById("cvc");
     let year = document.getElementById("year");
     if (name.value == "" || name.value == null){// if card name is empty on submit then display error message
         document.getElementById("name_blank").style.display = "inline-block";
-        document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
         error = error + 1;
     
     }
     if (name.value.length < 3 && name.value !== ""){ 
         document.getElementById("name_length").style.display = "inline-block";
-        document.getElementById("name").style.borderColor = "hsl(0, 100%, 66%)";
+        document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
         error = error + 1;
     }
     if (number.value == "" || number.value == null){
