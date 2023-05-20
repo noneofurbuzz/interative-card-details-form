@@ -22,7 +22,7 @@ function max_len(input){//slices the input from index 0 to maxlength if input gr
 
 function cardname(input){
     input.value = input.value.replace(/[^a-zA-Z ]/g,"");
-    var name = document.querySelector(".card-name");
+    let name = document.querySelector(".card-name");
     name.textContent = input.value;
     document.getElementById("name_blank").style.display = "none";
     document.getElementById("cardholdername").style.borderColor = "transparent";
