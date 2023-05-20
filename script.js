@@ -209,6 +209,8 @@ function blankname_error(input){
         {
             if(input.value == ""){
                 card_name.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
+            }
+            if(input.value == "" ){
                 document.getElementById("name_blank").style.display = "inline-block";
                 document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
             }
