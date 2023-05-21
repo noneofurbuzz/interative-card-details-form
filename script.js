@@ -166,8 +166,6 @@ function delete_cardname(input){
     if((key === "Backspace") || (key === "Delete")){
         if(input.value == ""){
             card_name.textContent = "JANE APPLESEED";
-        }
-        if(input.value == ""){
             document.getElementById("name_blank").style.display = "inline-block";
             document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
         }
@@ -207,10 +205,8 @@ function blankcardname_error(input){
     let card_name = document.querySelector(".card-name");
     if((key === "Backspace") || (key === "Delete"))
         {
-            if(input.value.length == 0){
-                card_name.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
-            }
             if(input.value.length == 0 ){
+                card_name.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
                 document.getElementById("name_blank").style.display = "inline-block";
                 document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
             }
