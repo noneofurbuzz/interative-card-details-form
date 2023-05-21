@@ -201,37 +201,22 @@ function blanknum_error(input){
     }
 }
 function blankcardname_error(input){
-    const key = event.key; 
+    const key = event.key;
     let card_name = document.querySelector(".card-name");
-    if((key === "Backspace") || (key === "Delete"))
-        {
-            if(input.value.length == 0 ){
-                card_name.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
-                document.getElementById("name_blank").style.display = "inline-block";
-                document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
-            }
+    if((key === "Backspace") || (key === "Delete")){
+        if(input.value == ""){
+            card_name.textContent = "JANE APPLESEED";
+            document.getElementById("name_blank").style.display = "inline-block";
+            document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
+        }
+    
             if(input.value.length < 3 && input.value.length !== 0){
                 document.getElementById("name_length").style.display = "inline-block";
                 document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
             }
     }
 }
-function blankInputError(input){
-    const key = event.key; 
-    let card_name = document.querySelector(".card-name");
-    if((key === "Backspace") || (key === "Delete"))
-        {
-            if(input.value.length == 0 ){
-                card_name.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
-                document.getElementById("name_blank").style.display = "inline-block";
-                document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
-            }
-            if(input.value.length < 3 && input.value.length !== 0){
-                document.getElementById("name_length").style.display = "inline-block";
-                document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
-            }
-    }
-}
+
 function blankdate_error(input){
     const key = event.key; 
     if((key === "Backspace") || (key === "Delete"))
@@ -279,19 +264,19 @@ function colour_change_month(input){
             document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
          
             }
-        if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) > 12){
+        if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && ((parseInt(document.getElementById("date").value)) > 12 || (parseInt(document.getElementById("date").value)) == 0)){
             document.getElementById("date_invalid").style.display = "inline-block";
             document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
             document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
         }
-        if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+        if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13 && (parseInt(document.getElementById("date").value)) !== 0){
             if((parseInt(document.getElementById("year").value)) < parseInt(currentyear)){
              document.getElementById("year_invalid").style.display = "inline-block";
              document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
              document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
             }
          }
-         if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+         if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13 && (parseInt(document.getElementById("date").value)) !== 0){
              if((parseInt(document.getElementById("year").value)) == parseInt(currentyear)){
                  if((parseInt(document.getElementById("date").value))< parseInt(currentmonth)){
                      document.getElementById("year_invalid").style.display = "inline-block";
@@ -421,13 +406,13 @@ function focus_color_cvc(input){
         error = error + 1;
             
     }
-    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) > 12){
+    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && ((parseInt(document.getElementById("date").value)) > 12 || (parseInt(document.getElementById("date").value)) == 0)){
         document.getElementById("date_invalid").style.display = "inline-block";
         document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
         document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)"; 
         error = error + 1;
     }
-    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13 && (parseInt(document.getElementById("date").value)) !== 0){
        if((parseInt(document.getElementById("year").value)) < parseInt(currentyear)){
         document.getElementById("year_invalid").style.display = "inline-block";
         document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
@@ -435,7 +420,7 @@ function focus_color_cvc(input){
         error = error + 1;
        }
     }
-    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13){
+    if(((document.getElementById("year").value.length === 2) && (document.getElementById("date").value.length === 2)) && (parseInt(document.getElementById("date").value)) < 13 && (parseInt(document.getElementById("date").value)) !== 0){
         if((parseInt(document.getElementById("year").value)) == parseInt(currentyear)){
             if((parseInt(document.getElementById("date").value))< parseInt(currentmonth)){
                 document.getElementById("year_invalid").style.display = "inline-block";
@@ -457,7 +442,13 @@ function focus_color_cvc(input){
         error = error + 1;
     }
     if (error === 0){
-        document.write("hi")
+        document.getElementById("cardForm").style.display = "none";
+        document.getElementById("thankyou").style.display = "flex";
+        document.querySelector("button").textContent = "Continue";
+        document.querySelector("button").onclick = function() {refresh()};
+    }
+    function refresh(){
+        location.reload();
     }
 }
 
