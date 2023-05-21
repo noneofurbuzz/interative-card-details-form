@@ -216,6 +216,22 @@ function blankcardname_error(input){
             }
     }
 }
+function blankInputError(input){
+    const key = event.key; 
+    let card_name = document.querySelector(".card-name");
+    if((key === "Backspace") || (key === "Delete"))
+        {
+            if(input.value.length == 0 ){
+                card_name.textContent = "JANE APPLESEED";//replaces card name with JANE APPLESEED if it's empty
+                document.getElementById("name_blank").style.display = "inline-block";
+                document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
+            }
+            if(input.value.length < 3 && input.value.length !== 0){
+                document.getElementById("name_length").style.display = "inline-block";
+                document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
+            }
+    }
+}
 function blankdate_error(input){
     const key = event.key; 
     if((key === "Backspace") || (key === "Delete"))
