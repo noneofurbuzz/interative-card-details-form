@@ -76,9 +76,7 @@ function cardyear(input){
             }   
             document.getElementById("date_blank").style.display = "none";
             document.getElementById("year").style.borderColor = "transparent";
-            document.getElementById("date_length").style.display = "none";
-      
-        
+            document.getElementById("date_length").style.display = "none";   
 }
 
 function delete_cardnum(input){
@@ -210,7 +208,7 @@ function blankcardname_error(input){
             document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
         }
     
-            if(input.value.length < 3 && input.value.length !== 0){
+            if(input.value.length < 3 && input.value !== ""){
                 document.getElementById("name_length").style.display = "inline-block";
                 document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
             }
@@ -252,6 +250,7 @@ function colour_change_month(input){
                 document.getElementById("date_blank").style.display = "inline-block";
                 document.getElementById("date").style.borderColor = "hsl(0, 100%, 66%)";
                 document.getElementById("year").style.borderColor = "hsl(0, 100%, 66%)";
+                document.getElementById("date_length").style.display = "none";
 
             }
         else{

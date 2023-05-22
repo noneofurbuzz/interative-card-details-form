@@ -20,6 +20,7 @@
             <p class="card-date"><span class="month">00</span><span>/</span><span class="year">00</span></p>
             <img class = "card-logo" src="images/card-logo.svg" alt="card-logo">
             </div>
+            <div class="desktopForm">
             <form autocomplete="off" spellcheck="false" id="cardForm">
                 <label for="cardholdername">CARDHOLDER NAME</label>
                 <br>
@@ -42,7 +43,7 @@
                     <br>
                     <label id="date_blank">Can't be blank</label>
                     <label id="date_length">Wrong format</label>
-                    <label id="date_invalid">Invalid date</label>
+                    <label id="date_invalid">Invalid month</label>
                     <label id="year_invalid">Expired date</label>
                     <br>
                   </div>
@@ -72,6 +73,7 @@
               </div>
             </section>
             <div class="button"><button onclick="validateform()">Confirm</button></div>
+            </div>
         </div>
   </main>
   <script src="script.js"></script>
