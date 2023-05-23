@@ -198,23 +198,24 @@ function blanknum_error(input){
             }
     }
 }
-function blankcardname_error(input){
+document.getElementById("cardholdername").addEventListener("keyup",blankcardname_error);
+function blankcardname_error(){
     const key = event.key;
     let card_name = document.querySelector(".card-name");
+    var cardName = document.getElementById("cardholdername");
     if((key === "Backspace") || (key === "Delete")){
-        if(input.value == ""){
+        if(cardName.value == ""){
             card_name.textContent = "JANE APPLESEED";
             document.getElementById("name_blank").style.display = "inline-block";
             document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
         }
     
-            if(input.value.length < 3 && input.value !== ""){
+            if(cardName.value.length < 3 && cardName.value !== ""){
                 document.getElementById("name_length").style.display = "inline-block";
                 document.getElementById("cardholdername").style.borderColor = "hsl(0, 100%, 66%)";
             }
     }
 }
-
 function blankdate_error(input){
     const key = event.key; 
     if((key === "Backspace") || (key === "Delete"))

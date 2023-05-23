@@ -1,7 +1,6 @@
 body{
     margin: 0;
     padding: 0;
-    min-height: 100vh;
   
 }
 @font-face {
@@ -12,9 +11,7 @@ body{
     width: 100%;
     font-family: space;
     font-size: 12.5px;
-    min-height: 100vh;
     font-weight: 500;
-    
 }
 .image{
     max-width: 100%;
@@ -415,31 +412,10 @@ button:active{
         left: 200px;
     }
 }
-@media screen and (max-width : 879px) and (min-height : 750px){
-    .image{
-        background-image: url("images/bg-main-mobile.png");
-        background-size: 100% 180%;
-        margin-bottom: 20px;
-        overflow:visible;
-    }
-    form{
-        margin-top: 70px;
-    }
-    .back{
-        position: relative;
-        top: 129px;
-        left: 30px;
-    }
-    .front{
-        position: absolute;
-        z-index: 1;
-        right: 25px;
-        bottom: -60px;
-    }
-}
 @media (pointer:fine){
     button:hover{
         cursor: pointer;
+        background-image: linear-gradient(hsl(249, 99%, 64%),hsl(278, 94%, 30%));
     }
     button:active{
         background-image: linear-gradient(hsl(249, 99%, 64%),hsl(278, 94%, 30%));
